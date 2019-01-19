@@ -86,9 +86,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-
-                            <h2 class="section-heading">Completely synergize resource taxing relationships</h2>
-                            <p class="text-light">Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
+                            <h2 class="section-heading"></h2>
                         </div>
                     </div>
                 </div>
@@ -97,7 +95,27 @@
             <!-- Content 1 -->
             <section class="content">
                 <div class="container">
-                </div>
+                  <canvas id="chartContainer"></canvas>
+                  <script type="text/javascript" src="script.js">
+                    var chartContainer = document.getElementByID("chartContainer");
+                    chartContainer.width = 300;
+                    chartContainer.height = 300;
+
+                    var ctx.chartContainer.getcontext("2d");
+                    function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color){
+                      ctx.save();
+                      ctx.fillStyle = color;
+                      ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
+                      ctx.restore();
+                    }
+
+                    var category = {
+                      "Stuff1": 10,
+                      "Stuff2": 9,
+                      "Stuff3": 8
+                    };
+                  </script>
+
             </section>
 
             <!-- Content 2 -->
