@@ -1,3 +1,6 @@
+language: javascript
+script:
+    - echo in test
 env:
   global:
   - 'USER=[user]'
