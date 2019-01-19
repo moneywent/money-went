@@ -16,6 +16,9 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
 
     </head>
 
@@ -58,67 +61,30 @@
         <header>
             <div class="header-content">
                 <div class="header-content-inner">
-                    <div class="col-sm-8">
+                    <div class="col-sm-8 col-sm-offset-2">
                         <h1>What the US government spent your taxes on.</h1>
                         <form>
                             <p1>How much taxes did you pay?</p1><br>
-                            <p2>$   </p2><input id=taxpayed type="number" min="1" step="any" name="taxamount"><br>
+                            <p2>$   </p2><input id=taxpayed class="number" min="1" step="any" name="taxamount"><br>
                             <p2>-OR-</p2><br>
                             <p1>What was your annual income?</p1><br>
-                            <p2>$   </p2><input id=annualincome type="number" min="1" step="any" name="incomeamount">
+                            <p2>$   </p2><input id=annualincome class="number" min="1" step="any" name="incomeamount">
                         </form>
                         <p>The United State federal government spent four trillion dollars in 2017.
                             This tool will tell you the amount of money you contributed to each specific category of the governments budget. </p>
                             <a id=gobutton class="btn btn-primary btn-lg">Let's Find Out</a>
 
                         </div>
-                        <div class="col-sm-4">
+                        <!-- Removing ads -->
+                        <!-- <div class="col-sm-4">
                             <img src="images/ad.gif" alt="ad" class="rectangle">
                             <img src="images/ad.gif" alt="ad" class="rectangle2">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
         </header>
 
-        <!-- Content 1 -->
-        <!-- <section class="content">
-            <div class="container">
-              <canvas id="chartContainer"></canvas>
-              <script type="text/javascript" src="script.js">
-                var chartContainer = document.getElementByID("chartContainer");
-                chartContainer.width = 300;
-                chartContainer.height = 300;
-
-                var ctx.chartContainer.getcontext("2d");
-                function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color){
-                  ctx.save();
-                  ctx.fillStyle = color;
-                  ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
-                  ctx.restore();
-                }
-
-                var category = {
-                  "Stuff1": 10,
-                  "Stuff2": 9,
-                  "Stuff3": 8
-                };
-              </script>
-
-        </section> -->
-
-        <section id="socials" class="content content-2">
-            <h2 style="text-align: center;">Share your results!</h2>
-            <div class="container">
-                <div align="center" class="col-sm-6 col-sm-offset-3">
-                    <!-- twitter -->
-                    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank"><img src="https://camo.githubusercontent.com/abf20ddfcad75b2cbcfd82e767dea4f1084a7938/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f706e672f747769747465722e706e67" alt="Twitter" width=10% height=10%/></a>
-                    <!-- Facebook -->
-                    <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank"><img src="https://camo.githubusercontent.com/e6d2040c65e8c6f4da10db72436cf9a1196e43ae/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f66616365626f6f6b2e737667" alt="Facebook" width=10% height=10% /></a>
-                    <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank"><img src="https://camo.githubusercontent.com/34c75efe0f75d432933f7c7ffdef3138b9c9bd16/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676f6f676c655f706c75732e737667" alt="Google" width=10% height=10% /></a>
-                    <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com"><img src="https://camo.githubusercontent.com/be2da4b6935fde94c4062114d0e57b2456f700f8/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f656d61696c2e737667" alt="Email" width=10% height=10% /></a>
-                </div>
-            </div>
-        </section>
+        <div id="contentInjector"></div>
 
         <!-- Footer -->
         <footer class="page-footer">

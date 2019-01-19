@@ -57,7 +57,7 @@ p2 {
     color: rgba(255,255,255);
 }
 
-input[type=number] {
+input[class=number] {
     width: 75%;
     padding: 3px 22px;
     margin: 8px 0;
