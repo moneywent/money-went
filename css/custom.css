@@ -62,8 +62,10 @@ input[type=number] {
     padding: 3px 22px;
     margin: 8px 0;
     box-sizing: border-box;
+    /* If you update this value, also update the JS for blur-out */
     border: 2px solid rgb(154, 205, 50, .6);
     border-radius: 25px;
+    /* If you update this value, also update the JS for blur-out */
     background-color: rgba(255,255,255,.15);
     font-size: 30px;
     text-align: center;
