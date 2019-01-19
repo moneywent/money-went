@@ -1,0 +1,7 @@
+env:
+  global:
+  - 'USER=[user]'
+  - 'PASSWORD=[password]'
+  - 'SERVER=[server]'
+after_success:
+- echo here
