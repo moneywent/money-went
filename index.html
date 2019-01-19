@@ -43,10 +43,10 @@
                             <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <a href="about.html">About</a>
                         </li>
                         <li>
-                            <a href="#">Donate</a>
+                            <a href="donate.html">Donate</a>
                         </li>
                     </ul>
 
@@ -78,88 +78,56 @@
                         </div>
                     </div>
                 </div>
-            </header>
+        </header>
 
-            <!-- Intro Section -->
-            <div id="intro"></div>
-            <section class="intro">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <h2 class="section-heading"></h2>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <!-- Content 1 -->
+        <!-- <section class="content">
+            <div class="container">
+              <canvas id="chartContainer"></canvas>
+              <script type="text/javascript" src="script.js">
+                var chartContainer = document.getElementByID("chartContainer");
+                chartContainer.width = 300;
+                chartContainer.height = 300;
 
-            <!-- Content 1 -->
-            <section class="content">
-                <div class="container">
-                  <canvas id="chartContainer"></canvas>
-                  <script type="text/javascript" src="script.js">
-                    var chartContainer = document.getElementByID("chartContainer");
-                    chartContainer.width = 300;
-                    chartContainer.height = 300;
+                var ctx.chartContainer.getcontext("2d");
+                function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color){
+                  ctx.save();
+                  ctx.fillStyle = color;
+                  ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
+                  ctx.restore();
+                }
 
-                    var ctx.chartContainer.getcontext("2d");
-                    function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height, color){
-                      ctx.save();
-                      ctx.fillStyle = color;
-                      ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
-                      ctx.restore();
-                    }
+                var category = {
+                  "Stuff1": 10,
+                  "Stuff2": 9,
+                  "Stuff3": 8
+                };
+              </script>
 
-                    var category = {
-                      "Stuff1": 10,
-                      "Stuff2": 9,
-                      "Stuff3": 8
-                    };
-                  </script>
+        </section> -->
 
-            </section>
-
-            <!-- Content 2 -->
-            <section class="content content-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Promos -->
-
-
-            <!-- Content 3 -->
-            <section class="content content-3">
-                <div class="container">
-                    <h2 class="section-header"><span class="glyphicon glyphicon-pushpin text-primary"></span><br> Sanity Check</h2>
-                    <p class="lead text-muted">Holisticly predominate extensible testing procedures for reliable supply chains. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-                    <a href="#" class="btn btn-primary btn-lg">Check Now</a>
+        <section id="socials" class="content content-2">
+            <h2 style="text-align: center;">Share your results!</h2>
+            <div class="container">
+                <div align="center" class="col-sm-6 col-sm-offset-3">
+                    <!-- twitter -->
+                    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank"><img src="https://camo.githubusercontent.com/abf20ddfcad75b2cbcfd82e767dea4f1084a7938/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f706e672f747769747465722e706e67" alt="Twitter" width=10% height=10%/></a>
+                    <!-- Facebook -->
+                    <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank"><img src="https://camo.githubusercontent.com/e6d2040c65e8c6f4da10db72436cf9a1196e43ae/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f66616365626f6f6b2e737667" alt="Facebook" width=10% height=10% /></a>
+                    <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank"><img src="https://camo.githubusercontent.com/34c75efe0f75d432933f7c7ffdef3138b9c9bd16/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676f6f676c655f706c75732e737667" alt="Google" width=10% height=10% /></a>
+                    <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com"><img src="https://camo.githubusercontent.com/be2da4b6935fde94c4062114d0e57b2456f700f8/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f656d61696c2e737667" alt="Email" width=10% height=10% /></a>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="page-footer">
-
-            <!-- Contact Us -->
-            <div class="contact">
-                <div class="container">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <p><span class="glyphicon glyphicon-earphone"></span><br> +1(23) 456 7890</p>
-                    <p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
-                </div>
-            </div>
-
             <!-- Copyright etc -->
             <div class="small-print">
                 <div class="container">
-                    <p>Copyright &copy; Example.com 2015</p>
+                    <p>Copyright &copy; wheredidmytaxesgo.com 2019</p>
                 </div>
             </div>
-
         </footer>
     </body>
 </html>

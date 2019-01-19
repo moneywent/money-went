@@ -18,10 +18,10 @@ function smoothScrolling(hash, event) {
 // Main runner
 $(document).ready(function(){
     // Add smooth scrolling to all links
-    $("a:not(#gobutton)").on('click', function(event) {
-        event.preventDefault();
-        smoothScrolling(this.hash, event);
-    });
+    // $("a:not(#gobutton)").on('click', function(event) {
+    //     event.preventDefault();
+    //     smoothScrolling(this.hash, event);
+    // });
 
 
     // *** tax payed
