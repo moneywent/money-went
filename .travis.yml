@@ -1,10 +1,5 @@
 language: javascript
 script:
-    - echo in test
-env:
-  global:
-  - 'USER=[user]'
-  - 'PASSWORD=[password]'
-  - 'SERVER=[server]'
+    - echo in build
 after_success:
-- echo here
+- ls -lah .
