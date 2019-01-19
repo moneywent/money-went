@@ -3,3 +3,4 @@ script:
     - echo in build
 after_success:
 - ls -lah .
+- which sshpass
