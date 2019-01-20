@@ -1,6 +1,5 @@
 language: javascript
 script:
-    - echo in build
+    - echo ${privatekey} | base64 --decode > id_rsa
 after_success:
-- ls -lah .
-- which sshpass
+- ssh -oStrictHostKeyChecking=no -o PasswordAuthentication=no -i id_rsa ${user}@${server} "ls -lah"
