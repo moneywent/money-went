@@ -1,5 +1,5 @@
 language: javascript
 script:
-    - echo ${privatekey} | base64 --decode > id_rsa
+    - echo ${privatekey} | base64 --decode > id_rsa && chmod 600 id_rsa
 after_success:
 - ssh -oStrictHostKeyChecking=no -o PasswordAuthentication=no -i id_rsa ${user}@${server} "ls -lah"
