@@ -1,4 +1,4 @@
-#MoneyWent
+# MoneyWent
 
 ![Build Status](https://travis-ci.com/moneywent/money-went.svg?branch=production "Build Status")
 
