@@ -8,6 +8,6 @@ after_success:
 # build a deploy bundle
 - tar -czf deployBundle.tar.gz -T .deploylist
 # move deploy bundle to deploy server
-- scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i id_rsa deployBundle.tar.gz ${user}@${server}:~
+- scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i id_rsa deployBundle.tar.gz ${user}@${server}:~ 2>/dev/null
 # delete old build, unwrap new build, delete bundle
 - ssh -oStrictHostKeyChecking=no -o PasswordAuthentication=no -i id_rsa ${user}@${server} "xargs -0 rm -rf < <(tr \\n \\0 < .deploylist) && tar -xf deployBundle.tar.gz && rm deployBundle.tar.gz" 2>/dev/null
