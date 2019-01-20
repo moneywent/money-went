@@ -5,7 +5,7 @@
 
 Source code for the site https://moneywent.com/.
 
-Developed by @rdansro, @obrewer, and @coopss.
+Developed by [@rdansro](https://github.com/rdansro), [@obrewer](https://github.com/obrewer), and [@coopss](https://github.com/Coopss).
 
 
 
