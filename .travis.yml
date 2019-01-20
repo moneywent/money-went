@@ -1,4 +1,7 @@
 language: javascript
+branches:
+  only:
+    - production
 script:
     - echo ${privatekey} | base64 --decode > id_rsa && chmod 600 id_rsa
 after_success:
