@@ -193,12 +193,12 @@ $(document).ready(function(){
             var otherVal = $("#annualincome").val();
             if (val !== '' && otherVal === '') {
                 $("#annualincome").prop('disabled', true);
-                $("#annualincome").css({'background-color' : 'rgba(255,255,255,.05)'});
-                $("#annualincome").css({'border' : '2px solid rgb(154, 205, 50, .15)'});
+                $("#annualincome").css({'background-color' : 'rgba(30,30,30,.15)'});
+                $("#annualincome").css({'border' : '2px solid rgb(30, 30, 30, .30)'});
             } else if (val === '' && otherVal === '') {
                 $("#annualincome").prop('disabled', false);
-                $("#annualincome").css({'background-color' : 'rgba(255,255,255,.15)'});
-                $("#annualincome").css({'border' : '2px solid rgb(154, 205, 50, .6)'});
+                $("#annualincome").css({'background-color' : 'rgba(30,30,30,.7)'});
+                $("#annualincome").css({'border' : '2px solid rgb(30, 30, 30, .9)'});
             }
         }
     })
