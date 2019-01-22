@@ -96,7 +96,7 @@ header {
 header .header-content {
     position: relative;
     width: 100%;
-    padding: 50px 15px 70px 70px;
+    padding: 10px 20px 70px 20px; /* top, left, bottom, right */
     text-align: center;
 
 }
