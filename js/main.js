@@ -60,18 +60,12 @@ function comma(Num) {
 // Main runner
 $(document).ready(function(){
     // Add smooth scrolling to all links
-    function drawChart() {
+    function drawChart(data) {
         new Chart($("#doughnut-graph")[0].getContext('2d'), {
           type: 'doughnut',
           data: {
             datasets: [{
-              data: [
-                1200,
-                1112,
-                533,
-                202,
-                105,
-              ],
+              data: data,
               backgroundColor: [
                 "#F7464A",
                 "#46BFBD",
@@ -243,12 +237,21 @@ $(document).ready(function(){
 
         console.log("taxpayedVal: " + taxpayedVal === '');
         console.log("annualincomeVal: " + annualincomeVal === '');
+        console.log(taxpayedVal);
+
+        var perc = [0.163, 0.158, 0.156, 0.099, 0.086, 0.077, 0.076, 0.056, 0.031, 0.016, 0.0143, 0.0141, 0.0116, 0.0102, 0.01, 0.0069, 0.0051, 0.0041, 0.0022];
+        var data = new Array(perc.length);
+        var i;
+        for (i=0; i < perc.length; i++) {
+          data[i] = [taxpayedVal*perc[i]];
+          console.log(taxpayedVal*perc[i]);
+        }
 
 
         // do this last, scroll to correct place on page
         injectChartCode();
         smoothScrolling("#chartContent", event);
-        drawChart();
+        drawChart(data);
 
     });
 
