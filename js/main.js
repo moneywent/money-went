@@ -8,7 +8,7 @@ $('#siteNav').affix({
 function smoothScrolling(hash, event) {
     // Store hash
     $('html, body').animate({
-        scrollTop: $(hash).offset().top
+        scrollTop: $(hash).offset().top - 45
     }, 1000, function(){
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
@@ -67,30 +67,22 @@ $(document).ready(function(){
             datasets: [{
               data: data,
               backgroundColor: [
-                "#F7464A",
-                "#46BFBD",
-                "#FDB45C",
-                "#949FB1",
-                "#4D5360",
+
               ],
               label: 'Dataset 1'
             }],
             labels: [
-              "Red",
-              "Green",
-              "Yellow",
-              "Grey",
-              "Dark Grey"
+
             ]
           },
           options: {
             plugins: {
               labels: {
                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-                render: 'value',
+                render: 'percentage',
 
                 // precision for percentage, default is 0
-                precision: 0,
+                precision: 1,
 
                 // identifies whether or not labels of value 0 are displayed, default is false
                 showZero: true,
@@ -133,7 +125,7 @@ $(document).ready(function(){
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
-                overlap: true,
+                overlap: false,
 
                 // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
                 showActualPercentages: true,
