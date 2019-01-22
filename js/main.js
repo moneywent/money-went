@@ -8,7 +8,7 @@ $('#siteNav').affix({
 function smoothScrolling(hash, event) {
     // Store hash
     $('html, body').animate({
-        scrollTop: $(hash).offset().top
+        scrollTop: $(hash).offset().top - 45
     }, 1000, function(){
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
@@ -60,43 +60,29 @@ function comma(Num) {
 // Main runner
 $(document).ready(function(){
     // Add smooth scrolling to all links
-    function drawChart() {
+    function drawChart(data) {
         new Chart($("#doughnut-graph")[0].getContext('2d'), {
           type: 'doughnut',
           data: {
             datasets: [{
-              data: [
-                1200,
-                1112,
-                533,
-                202,
-                105,
-              ],
+              data: data,
               backgroundColor: [
-                "#F7464A",
-                "#46BFBD",
-                "#FDB45C",
-                "#949FB1",
-                "#4D5360",
+
               ],
               label: 'Dataset 1'
             }],
             labels: [
-              "Red",
-              "Green",
-              "Yellow",
-              "Grey",
-              "Dark Grey"
+
             ]
           },
           options: {
             plugins: {
               labels: {
                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-                render: 'value',
+                render: 'percentage',
 
                 // precision for percentage, default is 0
-                precision: 0,
+                precision: 1,
 
                 // identifies whether or not labels of value 0 are displayed, default is false
                 showZero: true,
@@ -139,7 +125,7 @@ $(document).ready(function(){
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
-                overlap: true,
+                overlap: false,
 
                 // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
                 showActualPercentages: true,
@@ -238,17 +224,26 @@ $(document).ready(function(){
         console.log("button was pressed");
 
         // check which textbox has content
-        var taxpayedVal = $("#taxpayed").val();
-        var annualincomeVal = $("#annualincome").val();
+        var taxpayedVal = parseInt($("#taxpayed").val().replace(/,/g, ''), 10);
+        var annualincomeVal = parseInt($("#annualincome").val().replace(/,/g, ''), 10);
 
         console.log("taxpayedVal: " + taxpayedVal === '');
         console.log("annualincomeVal: " + annualincomeVal === '');
+        console.log(taxpayedVal);
+
+        var perc = [0.163, 0.158, 0.156, 0.099, 0.086, 0.077, 0.076, 0.056, 0.031, 0.016, 0.0143, 0.0141, 0.0116, 0.0102, 0.01, 0.0069, 0.0051, 0.0041, 0.0022];
+        var data = new Array(perc.length);
+        var i;
+        for (i=0; i < perc.length; i++) {
+          data[i] = [taxpayedVal*perc[i]];
+          console.log(taxpayedVal*perc[i]);
+        }
 
 
         // do this last, scroll to correct place on page
         injectChartCode();
         smoothScrolling("#chartContent", event);
-        drawChart();
+        drawChart(data);
 
     });
 
