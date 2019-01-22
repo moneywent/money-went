@@ -67,15 +67,42 @@ $(document).ready(function(){
             datasets: [{
               data: data,
               backgroundColor: [
-
+              "#F7464A",
+              "#46BFBD",
+              "#FDB45C",
+              "#949FB1",
+              "#4D5360",
               ],
               label: 'Dataset 1'
             }],
             labels: [
-
+              "Medicare",
+              "Social Security",
+              "Millitary",
+              "Health",
+              "Debt",
+              "Income Security",
+              "General Government",
+              "Unreported",
+              "Veterans",
+              "International Affairs",
+              "Education",
+              "Transportation",
+              "Regional Development",
+              "Justice",
+              "Environment",
+              "Housing Credit",
+              "Science and Space",
+              "Agriculture",
+              "Energy",
             ]
           },
           options: {
+            elements: {
+              arc:{
+                //borderColor: '#FFF'
+              }
+            },
             plugins: {
               labels: {
                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
@@ -83,6 +110,7 @@ $(document).ready(function(){
 
                 // precision for percentage, default is 0
                 precision: 1,
+
 
                 // identifies whether or not labels of value 0 are displayed, default is false
                 showZero: true,
@@ -103,20 +131,20 @@ $(document).ready(function(){
                 textShadow: true,
 
                 // text shadow intensity, default is 6
-                shadowBlur: 10,
+                shadowBlur: 4,
 
                 // text shadow X offset, default is 3
-                shadowOffsetX: -5,
+                shadowOffsetX: -3,
 
                 // text shadow Y offset, default is 3
-                shadowOffsetY: 5,
+                shadowOffsetY: -3,
 
                 // text shadow color, default is 'rgba(0,0,0,0.3)'
-                shadowColor: 'rgba(255,0,0,0.75)',
+                shadowColor: 'rgba(0,0,0,0.4)',
 
                 // draw label in arc, default is false
                 // bar chart ignores this
-                arc: true,
+                arc: false,
 
                 // position to draw label, available value is 'default', 'border' and 'outside'
                 // bar chart ignores this
