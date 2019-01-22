@@ -96,7 +96,7 @@ header {
 header .header-content {
     position: relative;
     width: 100%;
-    padding: 10px 20px 70px 20px; /* top, left, bottom, right */
+    padding: 10px 25px 70px 25px; /* top, left, bottom, right */
     text-align: center;
 
 }
@@ -181,6 +181,7 @@ header .header-content .header-content-inner p {
 
 .content {
     padding: 30px 0;
+    background-color: #F0F1F4;
 }
 
 .content-2 {
