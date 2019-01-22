@@ -232,8 +232,8 @@ $(document).ready(function(){
         console.log("button was pressed");
 
         // check which textbox has content
-        var taxpayedVal = $("#taxpayed").val();
-        var annualincomeVal = $("#annualincome").val();
+        var taxpayedVal = parseInt($("#taxpayed").val().replace(/,/g, ''), 10);
+        var annualincomeVal = parseInt($("#annualincome").val().replace(/,/g, ''), 10);
 
         console.log("taxpayedVal: " + taxpayedVal === '');
         console.log("annualincomeVal: " + annualincomeVal === '');
