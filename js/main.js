@@ -67,11 +67,16 @@ $(document).ready(function(){
             datasets: [{
               data: data,
               backgroundColor: [
-              "#F7464A",
-              "#46BFBD",
-              "#FDB45C",
-              "#949FB1",
-              "#4D5360",
+              "#02160A",
+              "#064620",
+              "#0A7434",
+              "#0FA34A",
+              "#13D15F",
+              "#2CEC79",
+              "#44EE88",
+              "#72F2A5",
+              "#A1F7C3",
+              "#CFFBE1",
               ],
               label: 'Dataset 1'
             }],
@@ -98,6 +103,9 @@ $(document).ready(function(){
             ]
           },
           options: {
+            legend: {
+              position: 'right',
+            },
             elements: {
               arc:{
                 //borderColor: '#FFF'
@@ -149,7 +157,7 @@ $(document).ready(function(){
                 // position to draw label, available value is 'default', 'border' and 'outside'
                 // bar chart ignores this
                 // default is 'default'
-                position: 'default',
+                position: 'border',
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
@@ -170,6 +178,8 @@ $(document).ready(function(){
                 // add padding when position is `outside`
                 // default is 2
                 outsidePadding: 4,
+
+                position: 'right',
 
                 // add margin of text when position is `outside` or `border`
                 // default is 2
