@@ -5,6 +5,53 @@ $('#siteNav').affix({
     }
 })
 
+var US_FEDERAL_TAX_RATIOS = {
+    "Medicare": 0.163,
+    "Social Security": 0.158,
+    "Millitary": 0.156,
+    "Health": 0.099,
+    "Debt": 0.086,
+    "Income Security": 0.077,
+    "General Government": 0.076,
+    "Unreported": 0.056,
+    "Veterans": 0.031,
+    "International Affairs": 0.016,
+    "Education": 0.0143,
+    "Transportation": 0.0141,
+    "Regional Development": 0.0116,
+    "Justice": 0.0102,
+    "Environment": 0.01,
+    "Housing Credit": 0.0069,
+    "Science and Space": 0.0051,
+    "Agriculture": 0.0041,
+    "Energy": 0.0022
+}
+
+var US_FEDERAL_TAX_BRACKETS = {
+    0 : 0,
+    9525 : 0.1,
+    38700 : 0.12,
+    82500 : 0.22,
+    157500 : 0.24,
+    200000 : 0.32,
+    500000 : 0.35,
+    9007199254740991 : 0.37
+}
+
+function sortKeys(m) {
+    var sarr = [];
+
+    for (let k in m) {
+        sarr.push([k, m[k]]);
+    }
+    sarr.sort(function(a,b){
+        return a[1] - b[1];
+    }).reverse();
+
+    return sarr.map(function(value,index) { return value[0]; });
+
+}
+
 function smoothScrolling(hash, event) {
     // Store hash
     $('html, body').animate({
@@ -57,6 +104,37 @@ function comma(Num) {
     return x1 + x2;
 }
 
+function generateData(taxpayedVal) {
+    var perc = Object.keys(US_FEDERAL_TAX_RATIOS).map(function(key){
+        return US_FEDERAL_TAX_RATIOS[key];
+    });
+    var data = new Array(perc.length);
+    for (var i = 0 ; i < perc.length; i++) {
+      data[i] = [taxpayedVal * perc[i]];
+      console.log(taxpayedVal * perc[i]);
+    }
+    return data;
+}
+
+function convertIncomeToTaxPayed(annualincomeVal) {
+    var tax = Object.keys(US_FEDERAL_TAX_BRACKETS).map(function(key){
+        return US_FEDERAL_TAX_BRACKETS[key];
+    });
+    var amount = Object.keys(US_FEDERAL_TAX_BRACKETS);
+    var taxpayedVal = 0;
+    var data = new Array(tax.length);
+    for (var i = 1 ; i < tax.length; i++) {
+      if (amount[i] < annualincomeVal) {
+        taxpayedVal += amount[i] * tax[i];
+      }
+      else {
+        taxpayedVal += (annualincomeVal - amount[i - 1]) * tax[i];
+        break;
+      }
+    }
+  return taxpayedVal;
+}
+
 // Main runner
 $(document).ready(function(){
     // Add smooth scrolling to all links
@@ -67,37 +145,25 @@ $(document).ready(function(){
             datasets: [{
               data: data,
               backgroundColor: [
-              "#F7464A",
-              "#46BFBD",
-              "#FDB45C",
-              "#949FB1",
-              "#4D5360",
+              "#02160A",
+              "#064620",
+              "#0A7434",
+              "#0FA34A",
+              "#13D15F",
+              "#2CEC79",
+              "#44EE88",
+              "#72F2A5",
+              "#A1F7C3",
+              "#CFFBE1",
               ],
               label: 'Dataset 1'
             }],
-            labels: [
-              "Medicare",
-              "Social Security",
-              "Millitary",
-              "Health",
-              "Debt",
-              "Income Security",
-              "General Government",
-              "Unreported",
-              "Veterans",
-              "International Affairs",
-              "Education",
-              "Transportation",
-              "Regional Development",
-              "Justice",
-              "Environment",
-              "Housing Credit",
-              "Science and Space",
-              "Agriculture",
-              "Energy",
-            ]
+            labels: sortKeys(US_FEDERAL_TAX_RATIOS)
           },
           options: {
+            legend: {
+              position: 'right',
+            },
             elements: {
               arc:{
                 //borderColor: '#FFF'
@@ -149,7 +215,7 @@ $(document).ready(function(){
                 // position to draw label, available value is 'default', 'border' and 'outside'
                 // bar chart ignores this
                 // default is 'default'
-                position: 'default',
+                position: 'border',
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
@@ -171,6 +237,8 @@ $(document).ready(function(){
                 // default is 2
                 outsidePadding: 4,
 
+                position: 'right',
+
                 // add margin of text when position is `outside` or `border`
                 // default is 2
                 textMargin: 4
@@ -179,7 +247,6 @@ $(document).ready(function(){
           }
         });
     }
-
 
     $('input.number').keyup(function(event) {
         // skip for arrow keys
@@ -197,7 +264,7 @@ $(document).ready(function(){
     // handle enter being pressed
     $("#taxpayed").on("keypress", function (e) {
         if (e.which == 13) {
-            handleTaxPayed();
+            $("#gobutton").click();
         }
     });
     // disable other entrybox
@@ -216,14 +283,11 @@ $(document).ready(function(){
             }
         }
     })
-    function handleTaxPayed() {
-        console.log("IN handleTaxPayed");
-    }
 
     // annual income handlers
     $("#annualincome").on("keypress", function (e) {
         if (e.which == 13) {
-            handleAnnualIncome();
+            $("#gobutton").click();
         }
     });
     // disable other entrybox
@@ -243,9 +307,6 @@ $(document).ready(function(){
             }
         }
     })
-    function handleAnnualIncome() {
-        console.log("IN handleAnnualIncome");
-    }
 
     $("#gobutton").on("click", function (e) {
         event.preventDefault();
@@ -255,18 +316,19 @@ $(document).ready(function(){
         var taxpayedVal = parseInt($("#taxpayed").val().replace(/,/g, ''), 10);
         var annualincomeVal = parseInt($("#annualincome").val().replace(/,/g, ''), 10);
 
-        console.log("taxpayedVal: " + taxpayedVal === '');
-        console.log("annualincomeVal: " + annualincomeVal === '');
-        console.log(taxpayedVal);
+        console.log("taxpayedVal: " + !isNaN(taxpayedVal));
+        console.log("annualincomeVal: " + !isNaN(annualincomeVal));
 
-        var perc = [0.163, 0.158, 0.156, 0.099, 0.086, 0.077, 0.076, 0.056, 0.031, 0.016, 0.0143, 0.0141, 0.0116, 0.0102, 0.01, 0.0069, 0.0051, 0.0041, 0.0022];
-        var data = new Array(perc.length);
-        var i;
-        for (i=0; i < perc.length; i++) {
-          data[i] = [taxpayedVal*perc[i]];
-          console.log(taxpayedVal*perc[i]);
+        var data;
+        if (!isNaN(taxpayedVal)) {
+            data = generateData(taxpayedVal);
+        } else if (!isNaN(annualincomeVal)) {
+            taxpayedVal = convertIncomeToTaxPayed(annualincomeVal);
+            data = generateData(taxpayedVal);
+        } else {
+            // Empty input case
+            return;
         }
-
 
         // do this last, scroll to correct place on page
         injectChartCode();
@@ -274,7 +336,4 @@ $(document).ready(function(){
         drawChart(data);
 
     });
-
-
-
 });
