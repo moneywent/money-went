@@ -27,6 +27,17 @@ var US_FEDERAL_TAX_RATIOS = {
     "Energy": 0.0022
 }
 
+var US_FEDERAL_TAX_BRACKETS = {
+    0 : 0,
+    9525 : 0.1,
+    38700 : 0.12,
+    82500 : 0.22,
+    157500 : 0.24,
+    200000 : 0.32,
+    500000 : 0.35,
+    9007199254740991 : 0.37
+}
+
 function sortKeys(m) {
     var sarr = [];
 
@@ -103,6 +114,25 @@ function generateData(taxpayedVal) {
       console.log(taxpayedVal * perc[i]);
     }
     return data;
+}
+
+function convertIncomeToTaxPayed(annualincomeVal) {
+    var tax = Object.keys(US_FEDERAL_TAX_BRACKETS).map(function(key){
+        return US_FEDERAL_TAX_BRACKETS[key];
+    });
+    var amount = Object.keys(US_FEDERAL_TAX_BRACKETS);
+    var taxpayedVal = 0;
+    var data = new Array(tax.length);
+    for (var i = 1 ; i < tax.length; i++) {
+      if (amount[i] < annualincomeVal) {
+        taxpayedVal += amount[i] * tax[i];
+      }
+      else {
+        taxpayedVal += (annualincomeVal - amount[i - 1]) * tax[i];
+        break;
+      }
+    }
+  return taxpayedVal;
 }
 
 // Main runner
@@ -293,9 +323,8 @@ $(document).ready(function(){
         if (!isNaN(taxpayedVal)) {
             data = generateData(taxpayedVal);
         } else if (!isNaN(annualincomeVal)) {
-            console.error("Annual income mode not yet supported");
-            // taxpayedVal = convertIncomeToTaxPayed(annualincomeVal);
-            // data = generateData(taxpayedVal);
+            taxpayedVal = convertIncomeToTaxPayed(annualincomeVal);
+            data = generateData(taxpayedVal);
         } else {
             // Empty input case
             return;
