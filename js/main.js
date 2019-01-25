@@ -67,7 +67,7 @@ function injectChartCode() {
     <!-- Injected chartContent -->
     <section id="chartContent" class="content content-1">
         <div class="container">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-10 col-sm-offset-1">
                 <canvas id="doughnut-graph" width="600" height="460" style="display: block; height: 230px; width: 300px;"></canvas>
             </div>
         </div>
@@ -161,6 +161,8 @@ $(document).ready(function(){
             labels: sortKeys(US_FEDERAL_TAX_RATIOS)
           },
           options: {
+            maintainAspectRatio: false,
+            responsive: true,
             legend: {
               position: 'right',
             },
