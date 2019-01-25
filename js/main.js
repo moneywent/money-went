@@ -174,7 +174,11 @@ $(document).ready(function(){
             plugins: {
               labels: {
                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-                render: 'percentage',
+                render: 'label',
+                // position to draw label, available value is 'default', 'border' and 'outside'
+                // bar chart ignores this
+                // default is 'default'
+                position: 'outside',
 
                 // precision for percentage, default is 0
                 precision: 1,
@@ -214,14 +218,9 @@ $(document).ready(function(){
                 // bar chart ignores this
                 arc: false,
 
-                // position to draw label, available value is 'default', 'border' and 'outside'
-                // bar chart ignores this
-                // default is 'default'
-                position: 'border',
-
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
-                overlap: false,
+                overlap: true,
 
                 // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
                 showActualPercentages: true,
