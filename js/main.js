@@ -110,8 +110,8 @@ function generateData(taxpayedVal) {
     });
     var data = new Array(perc.length);
     for (var i = 0 ; i < perc.length; i++) {
-      data[i] = [taxpayedVal * perc[i]];
-      console.log(taxpayedVal * perc[i]);
+      data[i] = (taxpayedVal * perc[i]).toFixed(2);
+      console.log(data[i]);
     }
     return data;
 }
