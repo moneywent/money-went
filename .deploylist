@@ -3,6 +3,7 @@ images
 js
 vendor
 about.html
-donate.html
 index.html
+favicon.ico
+robots.txt
 .deploylist
