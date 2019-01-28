@@ -67,7 +67,7 @@ function injectChartCode() {
     <!-- Injected chartContent -->
     <section id="chartContent" class="content content-1">
         <div class="container">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-10 col-sm-offset-1">
                 <canvas id="doughnut-graph" width="600" height="460" style="display: block; height: 230px; width: 300px;"></canvas>
             </div>
         </div>
@@ -110,8 +110,8 @@ function generateData(taxpayedVal) {
     });
     var data = new Array(perc.length);
     for (var i = 0 ; i < perc.length; i++) {
-      data[i] = [taxpayedVal * perc[i]];
-      console.log(taxpayedVal * perc[i]);
+      data[i] = (taxpayedVal * perc[i]).toFixed(2);
+      console.log(data[i]);
     }
     return data;
 }
@@ -161,6 +161,8 @@ $(document).ready(function(){
             labels: sortKeys(US_FEDERAL_TAX_RATIOS)
           },
           options: {
+            maintainAspectRatio: true,
+            responsive: true,
             legend: {
               position: 'right',
             },
@@ -172,7 +174,11 @@ $(document).ready(function(){
             plugins: {
               labels: {
                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-                render: 'percentage',
+                render: 'label',
+                // position to draw label, available value is 'default', 'border' and 'outside'
+                // bar chart ignores this
+                // default is 'default'
+                position: 'outside',
 
                 // precision for percentage, default is 0
                 precision: 1,
@@ -211,11 +217,6 @@ $(document).ready(function(){
                 // draw label in arc, default is false
                 // bar chart ignores this
                 arc: false,
-
-                // position to draw label, available value is 'default', 'border' and 'outside'
-                // bar chart ignores this
-                // default is 'default'
-                position: 'border',
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
