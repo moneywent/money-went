@@ -161,7 +161,7 @@ $(document).ready(function(){
             labels: sortKeys(US_FEDERAL_TAX_RATIOS)
           },
           options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             responsive: true,
             legend: {
               position: 'right',
@@ -220,7 +220,7 @@ $(document).ready(function(){
 
                 // draw label even it's overlap, default is true
                 // bar chart ignores this
-                overlap: true,
+                overlap: false,
 
                 // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
                 showActualPercentages: true,
