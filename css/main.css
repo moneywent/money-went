@@ -185,13 +185,17 @@ header .header-content .header-content-inner p {
 }
 
 .content-2 {
+  padding: 20px 0 40px;
 	color: #fff;
     background-color: #222;
 }
 
 .content-3 {
 	padding: 20px 0 40px;
-	text-align: center;
+}
+.content-4 {
+	padding: 20px 0 40px;
+	 background-color: #aaa;
 }
 
 .promo,

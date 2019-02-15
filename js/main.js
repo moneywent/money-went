@@ -6,25 +6,18 @@ $('#siteNav').affix({
 })
 
 var US_FEDERAL_TAX_RATIOS = {
-    "Medicare": 0.163,
-    "Social Security": 0.158,
-    "Millitary": 0.156,
-    "Health": 0.099,
-    "Debt": 0.086,
-    "Income Security": 0.077,
-    "General Government": 0.076,
-    "Unreported": 0.056,
-    "Veterans": 0.031,
-    "International Affairs": 0.016,
-    "Education": 0.0143,
-    "Transportation": 0.0141,
-    "Regional Development": 0.0116,
-    "Justice": 0.0102,
-    "Environment": 0.01,
-    "Housing Credit": 0.0069,
-    "Science and Space": 0.0051,
-    "Agriculture": 0.0041,
-    "Energy": 0.0022
+    "Health": 0.31208,
+    "Millitary": 0.22498,
+    "Debt": 0.14204,
+    "Unemployment": 0.07421,
+    "Veterans": 0.06033,
+    "Education": 0.03993,
+    "Government": 0.03925,
+    "Housing": 0.02195,
+    "Energy and Enviroment": 0.01373,
+    "International": 0.01306,
+    "Science": 0.01047,
+    "Transportation": 0.00825,
 }
 
 var US_FEDERAL_TAX_BRACKETS = {
